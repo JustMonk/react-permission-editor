@@ -1,0 +1,92 @@
+.App {
+  
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #213943; /*#282c34*/
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  position: absolute;
+  max-width: 100%;
+  width: 100%;
+  z-index: -1;
+  top: 0;
+}
+
+.card-wrapper {
+   margin-top: 120px !important;
+}
+.card-wrapper h5 {
+   margin: 1.1rem 0;
+}
+
+#history-wrapper {
+   padding: 20px;
+}
+
+#editor-wrapper {
+   padding: 20px;
+}
+
+.action-message {
+   text-align: center;
+   padding: 20px 0;
+}
+
+.action-message h5 {
+   margin-bottom: 1.52rem;
+}
+
+.glow-button {
+   box-shadow: 0 5px 15px rgb(57, 168, 228);
+   background-color: #39a8e4;
+   padding: 10px;
+   padding-left: 3em;
+   padding-right: 3em;
+   cursor: pointer;
+   border-radius: 25px;
+   color: #fff !important;
+   background-image: linear-gradient(135deg, #8d8dd4, #45ced4);
+}
+
+.input-title {
+   font-size: 17px;
+   font-weight: bold;
+   display: flex;
+   align-items: center;
+}
+
+.input-date-picker {
+   position: absolute;
+   right: 10px;
+   bottom: 15px;
+   cursor: pointer;
+}
+
+.range-helper {
+   display: flex;
+   justify-content: space-between;
+}
+
+.table-link {
+   display: inline-block;
+   cursor: pointer;
+   margin-right: 20px;
+   padding: 5px;
+   user-select: none;
+}
+
+.outside-wrapper {
+   margin-bottom: 0;
+}
+
+.title-icon {
+   margin-right: 5px;
+}
