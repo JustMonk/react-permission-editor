@@ -1,6 +1,5 @@
 import React from 'react';
 import M from 'materialize-css';
-import { isArray } from 'util';
 
 class SwitchList extends React.Component {
 
@@ -53,7 +52,7 @@ class SwitchList extends React.Component {
 
    render() {
       return (
-         <div className="switch-list-wrapper">
+         <div id={this.props.id} className="switch-list-wrapper">
             <table>
                <thead>
                   <tr>

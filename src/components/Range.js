@@ -36,7 +36,7 @@ class Range extends React.Component {
                <span>Выбранное значение: <span class="current-value">{this.props.default}</span></span>
                <span>{this.props.max}</span>
             </div>
-            <input type="range" id="range" defaultValue={this.props.default} min={this.props.min} max={this.props.max} onChange={this.showCurrentValue} />
+            <input type="range" id={this.props.id} defaultValue={this.props.default} min={this.props.min} max={this.props.max} onChange={this.showCurrentValue} />
          </p>
       );
    }

@@ -68,6 +68,7 @@
    right: 10px;
    bottom: 15px;
    cursor: pointer;
+   user-select: none;
 }
 
 .range-helper {
@@ -89,4 +90,55 @@
 
 .title-icon {
    margin-right: 5px;
+}
+
+.save-screen-wrapper {
+
+}
+
+.save-screen-wrapper pre {
+   padding: 16px;
+   overflow: auto;
+   font-size: 85%;
+   line-height: 1.45;
+   background-color: #f6f8fa;
+   border-radius: 3px;
+}
+
+.save-action {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.save-action a {
+   margin: 0 10px;
+   display: flex;
+}
+
+.save-action a i {
+   margin-right: 5px;
+}
+
+.save-action span {
+   font-size: 20px;
+   font-weight: 100;
+   margin: 0 5px;
+}
+
+#toast-container {
+   top: auto !important;
+   bottom: 10px !important;
+}
+
+.return-button {
+   display: inline-flex;
+   align-items: center;
+   cursor: pointer;
+   user-select: none;
+   padding: 10px 0px;
+   color: #888383;
+}
+.return-button i {
+   margin-right: 5px;
+   font-weight: bold;
 }
