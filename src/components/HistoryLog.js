@@ -47,7 +47,7 @@ class HistoryLog extends React.Component {
    render() {
       return (
 
-         <div class="row">
+         <div class="row outside-wrapper">
 
             {this.state.history.length < 1 ?
                <div id="empty-history" className="action-message">

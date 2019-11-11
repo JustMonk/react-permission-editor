@@ -69,7 +69,7 @@ class SaveScreen extends React.Component {
 
    render() {
       return (
-         <div className="save-screen-wrapper">
+         <div className="save-screen-wrapper fadeIn">
 
             <a className="return-button" onClick={this.props.returnAction}><i class="material-icons">arrow_back</i>Вернуться</a>
 

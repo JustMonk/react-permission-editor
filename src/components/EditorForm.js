@@ -133,7 +133,7 @@ class EditorForm extends React.Component {
          return (
             <div id="editor-form">
 
-               <div class="row outside-wrapper">
+               <div class="row outside-wrapper fadeIn">
                   <form class="col s12">
 
                      <div className="input-title"><i class="material-icons title-icon" data-tooltip="Информация, недоступная для редактирования">help_outline</i>Служебные данные:</div>
@@ -215,7 +215,7 @@ class EditorForm extends React.Component {
 
             {!this.state.serverData ?
 
-               <div id="get-user" className="action-message">
+               <div id="get-user" className="action-message slideUp">
 
                   <h5>Шаг 1: загрузите данные пользователя</h5>
                   <a class="waves-effect waves-light btn-large" id="start-button" onClick={this.getUserData}>Начать работу</a>

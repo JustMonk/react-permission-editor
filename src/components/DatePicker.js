@@ -54,9 +54,16 @@ class DatePicker extends React.Component {
                   }
                   this.addTime(timePick.time ? timePick.time + ':00' : '');
                   timePick.destroy();
+               },
+               i18n: {
+                  cancel: 'Отмена',
+                  done: 'Выбор'
                }
             });
             timePick.open();
+         },
+         onOpen: function() {
+            this.el.parentElement.querySelector('input').classList.remove('invalid');
          },
          i18n: {
             months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Авгус', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
@@ -64,6 +71,8 @@ class DatePicker extends React.Component {
             weekdays: ['Воскресеньк', 'Понедельник', 'Вторник', 'Среда', 'Черверг', 'Пятница', 'Суббота'],
             weekdaysShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
             weekdaysAbbrev: ['В', 'П', 'В', 'С', 'Ч', 'П', 'С'],
+            cancel: 'Отмена',
+            done: 'Выбор'
          }
       });
    }
