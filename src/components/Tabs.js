@@ -30,7 +30,7 @@ class Tabs extends React.Component {
 
             <div class="col s8">
                <ul class="tabs">
-                  <li class="tab col s3"><a href="#editor-wrapper">Редактирование</a></li>
+                  <li class="tab col s3"><a href="#editor-wrapper">Редактор</a></li>
                   <li class="tab col s3"><a href="#history-wrapper">История ({this.state.historyRecords})</a></li>
                </ul>
             </div>

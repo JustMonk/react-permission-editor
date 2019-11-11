@@ -8,7 +8,7 @@
 
 .App-header {
   background-color: #213943; /*#282c34*/
-  height: 250px;
+  height: 314px; /*250*/
   display: flex;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -18,10 +18,12 @@
   width: 100%;
   z-index: -1;
   top: 0;
+  padding-top: 75px;
 }
 
 .card-wrapper {
    margin-top: 120px !important;
+   max-width: 1000px;
 }
 .card-wrapper h5 {
    margin: 1.1rem 0;
@@ -61,6 +63,7 @@
    font-weight: bold;
    display: flex;
    align-items: center;
+   margin: 5px 0;
 }
 
 .input-date-picker {
@@ -150,7 +153,7 @@
 
 /*test animation*/
 .slideUp {
-   animation-duration: 1s;
+   animation-duration: 0.7s;
    animation-name: slideUp;
    /*transition: all 0.3ms*/
    overflow: hidden;
@@ -236,4 +239,54 @@
 
  .tabs .tab a:focus {
    background-color: #fff;
+ }
+
+
+ .dummy-nav {
+    width: auto;
+    background: #f7f8fd;
+ }
+
+ .nav-content {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 64px;
+ }
+
+ .user-avatar {
+   width: 40px;
+   height: 40px;
+   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
+   border-radius: 100px;
+   overflow: hidden;
+ }
+
+ .user-avatar img {
+    width: inherit;
+    height: inherit;
+ }
+
+ .nav-user {
+   display: flex;
+   align-items: center;
+ }
+
+ .user-info {
+   margin-right: 5px;
+ }
+
+ .user-info svg {
+    display: block;
+    padding: 3px;
+    border-radius: 15px;
+    fill: rgba(222, 222, 222, 1);
+ }
+
+ .user-info :last-child {
+    float: right;
+ }
+
+ .nav-title {
+   font-size: 22px;
  }

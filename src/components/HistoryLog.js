@@ -21,6 +21,12 @@ class HistoryLog extends React.Component {
          this.setState({ history: Object.values(snapshot.val()) });
       });
       console.log(this.state.history);
+
+      var instances = M.Collapsible.init(document.querySelectorAll('.collapsible'), {});
+   }
+
+   componentDidUpdate() {
+      var instances = M.Collapsible.init(document.querySelectorAll('.collapsible'), {});
    }
 
    insertToDatabase() {
@@ -47,7 +53,7 @@ class HistoryLog extends React.Component {
    render() {
       return (
 
-         <div class="row outside-wrapper">
+         <div class="row outside-wrapper fadeIn">
 
             {this.state.history.length < 1 ?
                <div id="empty-history" className="action-message">
@@ -57,41 +63,31 @@ class HistoryLog extends React.Component {
 
                :
 
-               <table class="responsive-table">
-                  <thead>
-                     <tr>
-                        <th>ID</th>
-                        <th>Имя</th>
-                        <th>Email</th>
-                        <th>Конфигуратор</th>
-                        <th>Таймер</th>
-                        <th>Права</th>
-                        <th>Активен</th>
-                        <th>Обновлен</th>
-                        <th>Изменен</th>
-                     </tr>
-                  </thead>
+               <div className="IN_THE_FIND">
 
-                  <tbody>
-                     {this.state.history.map(val => {
+                  <ul class="collapsible">
+
+                     {this.state.history.map((val,i) => {
                         return (
-                           <tr>
-                              <td>{val.id}</td>
-                              <td>{val.name}</td>
-                              <td>{val.email}</td>
-                              <td>{val.config_bool}</td>
-                              <td>{val.timer_integer}</td>
-                              <td>{val.flags}</td>
-                              <td>{val.activate_date}</td>
-                              <td>{val.update_date}</td>
-                              <td>{val.timestamp}</td>
-                           </tr>
+                           <li>
+                              <div class="collapsible-header"><i class="material-icons">filter_drama</i>{i}) {val.timestamp}</div>
+                              <div class="collapsible-body">
+                              <p>{val.id}</p>
+                              <p>{val.name}</p>
+                              <p>{val.email}</p>
+                              <p>{val.config_bool}</p>
+                              <p>{val.timer_integer}</p>
+                              <p>{val.flags}</p>
+                              <p>{val.activate_date}</p>
+                              <p>{val.update_date}</p>
+                              <p>{val.timestamp}</p>
+                              </div>
+                           </li>
                         );
                      })}
-                  </tbody>
-               </table>
 
-
+                  </ul>
+               </div>
 
             }
 

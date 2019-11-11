@@ -88,7 +88,7 @@ class EditorForm extends React.Component {
 
       responseObj.config_bool = document.getElementById('config_bool').checked ? '1' : '0';
 
-      responseObj.timer_integer = document.getElementById('timer_range').value;
+      responseObj.timer_integer = Number(document.getElementById('timer_range').value);
       if (responseObj.timer_integer < 100 || responseObj.timer_integer > 1000) isValid = false;
 
       responseObj.flags = [];
@@ -160,7 +160,7 @@ class EditorForm extends React.Component {
                      <div className="input-title"><i class="material-icons title-icon" data-tooltip="Право редактировать настройки, передается в «config_bool»">help_outline</i>Особые разрешения:</div>
                      <div class="row">
                         <div className="input-field col s12">
-                           <div class="switch">
+                           <div class="switch" style={{display: 'flex'}}>
                               Доступ к конфигуратору
                               <label>
                                  {+this.state.serverData.config_bool ? <input id="config_bool" defaultChecked type="checkbox"></input> : <input id="config_bool" type="checkbox"></input>}

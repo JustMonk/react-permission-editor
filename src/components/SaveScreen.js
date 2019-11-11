@@ -49,13 +49,15 @@ class SaveScreen extends React.Component {
 
    formatData(json) {
       let obj = JSON.parse(json);
+      console.log(obj);
       let formatted = [];
       for (let key in obj) {
          if (isArray(obj[key])) {
-            formatted.push(<p>"{key}": [{obj[key].map(val => `"${val}"`).join(',')}],</p>);
+            formatted.push(<p>"{key}": [{obj[key].map(val => typeof (val) == "number" ? `${val}` : `"${val}"`).join(',')}],</p>);
             continue;
          }
-         formatted.push(<p>"{key}": "{obj[key]}",</p>);
+         formatted.push(<p>"{key}": {typeof (obj[key]) == 'number' ? `${obj[key]}` : `"${obj[key]}"`}
+            {formatted.length + 1 === Object.keys(obj).length ? "" : ","}</p>);
       }
 
       return (
