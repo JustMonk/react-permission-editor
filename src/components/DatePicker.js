@@ -114,6 +114,7 @@ class DatePicker extends React.Component {
             <input id={this.props.id} type="text" placeholder="введите или выберите дату" class="validate" defaultValue={this.state.defaultDate}></input>
             <label for={this.props.id}>{this.props.label}</label>
             <i class="material-icons input-date-picker" ref={this.pickerRef}>calendar_today</i>
+            <span class="helper-text date-helper" data-error={this.props.errorText}></span>
          </div>
       );
    }

@@ -23,7 +23,6 @@ class EditorForm extends React.Component {
    componentDidMount() {
       var historyRef = firebase.database().ref('history');
       historyRef.on('value', (snapshot) => {
-         console.log(snapshot.val())
          if (!snapshot.val()) return;
          this.setState({ history: Object.values(snapshot.val()) });
       });
@@ -43,7 +42,6 @@ class EditorForm extends React.Component {
       try {
          let response = await fetch('https://raw.githubusercontent.com/JustMonk/react-permission-editor/json/data.json');
          let userData = await response.json();
-         console.log(userData);
          this.setState({ serverData: userData });
       } catch (e) {
          console.log(e);
@@ -64,7 +62,7 @@ class EditorForm extends React.Component {
          update_date: obj.update_date,
          timestamp: Date.now()
       });
-  }
+   }
 
    cancelChanges() {
       this.setState({ serverData: null });
@@ -116,7 +114,7 @@ class EditorForm extends React.Component {
       }
 
       if (isValid) {
-         this.setState({ savedData: JSON.stringify(responseObj)});
+         this.setState({ savedData: JSON.stringify(responseObj) });
          this.setState({ isSaved: true });
          this.insertToDatabase(responseObj);
       } else {
@@ -160,7 +158,7 @@ class EditorForm extends React.Component {
                      <div className="input-title"><i class="material-icons title-icon" data-tooltip="Право редактировать настройки, передается в «config_bool»">help_outline</i>Особые разрешения:</div>
                      <div class="row">
                         <div className="input-field col s12">
-                           <div class="switch" style={{display: 'flex'}}>
+                           <div class="switch" style={{ display: 'flex' }}>
                               Доступ к конфигуратору
                               <label>
                                  {+this.state.serverData.config_bool ? <input id="config_bool" defaultChecked type="checkbox"></input> : <input id="config_bool" type="checkbox"></input>}
@@ -181,8 +179,8 @@ class EditorForm extends React.Component {
 
                      <div className="input-title"><i class="material-icons title-icon" data-tooltip="Выберите нужную дату, нажав на календарь, либо отредактируйте строку. Часовой пояс по умолчанию GMT +0">help_outline</i>Настройка времени:</div>
                      <div class="row">
-                        <DatePicker key={1} id="activate_date" label="Дата активации" default={this.state.serverData.dateactivate} minDate={new Date()} colSize="6" type={"GMT"} />
-                        <DatePicker key={2} id="update_date" label="Дата обновления" default={this.state.serverData.dateupdate} minDate={null} colSize="6" />
+                        <DatePicker id="activate_date" label="Дата активации" default={this.state.serverData.dateactivate} minDate={new Date()} colSize="6" type={"GMT"} errorText={"Введите корректную дату, больше текущей"} />
+                        <DatePicker id="update_date" label="Дата обновления" default={this.state.serverData.dateupdate} minDate={null} colSize="6" errorText={"Некорректная дата"} />
                      </div>
 
 

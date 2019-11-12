@@ -49,7 +49,6 @@ class SaveScreen extends React.Component {
 
    formatData(json) {
       let obj = JSON.parse(json);
-      console.log(obj);
       let formatted = [];
       for (let key in obj) {
          if (isArray(obj[key])) {

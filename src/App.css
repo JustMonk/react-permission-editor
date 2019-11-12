@@ -7,7 +7,7 @@
 }
 
 .App-header {
-  background-color: #213943; /*#282c34*/
+  background-color: #3c5763; /*#282c34*/ /* #213943*/
   height: 314px; /*250*/
   display: flex;
   justify-content: center;
@@ -289,4 +289,21 @@
 
  .nav-title {
    font-size: 22px;
+   color: #646b77;
+ }
+
+ .date-helper {
+    position: absolute !important;
+    width: 100%;
+    bottom: -15px;
+ }
+
+ .date-picker-wrapper {
+    margin-bottom: 15px;
+ }
+
+ /*test table add animation*/
+ #flag_list tbody :last-child {
+   animation-duration: 1s;
+   animation-name: fadeIn;
  }

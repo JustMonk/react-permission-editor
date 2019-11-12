@@ -12,14 +12,6 @@ class SwitchList extends React.Component {
       this.deleteLastRow = this.deleteLastRow.bind(this);
    }
 
-   componentDidMount() {
-
-   }
-
-   componentDidUpdate() {
-
-   }
-
    addRow() {
       let currentList = this.state.list;
       currentList.push('0');
