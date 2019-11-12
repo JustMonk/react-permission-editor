@@ -19,7 +19,6 @@ class DatePicker extends React.Component {
       //контекст
       let dateView = this.dateView;
 
-      //M.Datepicker.init(document.querySelectorAll('.input-date-picker'), {
       M.Datepicker.init(this.pickerRef.current, {
          defaultDate: new Date(),
          firstDay: 1,
@@ -100,7 +99,6 @@ class DatePicker extends React.Component {
       }
 
       let userDate = utcStr.split('T')[0];
-      //userDate = `${userDate.split('-')[2]}.${userDate.split('-')[1]}.${userDate.split('-')[0]}`;
 
       let userTime = utcStr.split('T')[1];
       userTime = userTime.slice(0, 8);
@@ -110,11 +108,11 @@ class DatePicker extends React.Component {
 
    render() {
       return (
-         <div class={'input-field col s' + this.props.colSize}>
-            <input id={this.props.id} type="text" placeholder="введите или выберите дату" class="validate" defaultValue={this.state.defaultDate}></input>
-            <label for={this.props.id}>{this.props.label}</label>
-            <i class="material-icons input-date-picker" ref={this.pickerRef}>calendar_today</i>
-            <span class="helper-text date-helper" data-error={this.props.errorText}></span>
+         <div className={'input-field col s' + this.props.colSize}>
+            <input id={this.props.id} type="text" placeholder="введите или выберите дату" className="validate" defaultValue={this.state.defaultDate}></input>
+            <label htmlFor={this.props.id}>{this.props.label}</label>
+            <i className="material-icons input-date-picker" ref={this.pickerRef}>calendar_today</i>
+            <span className="helper-text date-helper" data-error={this.props.errorText}></span>
          </div>
       );
    }

@@ -1,11 +1,3 @@
-.App {
-  
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
 .App-header {
   background-color: #3c5763; /*#282c34*/ /* #213943*/
   height: 314px; /*250*/
@@ -46,18 +38,6 @@
    margin-bottom: 1.52rem;
 }
 
-.glow-button {
-   box-shadow: 0 5px 15px rgb(57, 168, 228);
-   background-color: #39a8e4;
-   padding: 10px;
-   padding-left: 3em;
-   padding-right: 3em;
-   cursor: pointer;
-   border-radius: 25px;
-   color: #fff !important;
-   background-image: linear-gradient(135deg, #8d8dd4, #45ced4);
-}
-
 .input-title {
    font-size: 17px;
    font-weight: bold;
@@ -81,6 +61,7 @@
 .range-helper {
    display: flex;
    justify-content: space-between;
+   margin: 0;
 }
 
 .table-link {
@@ -100,9 +81,6 @@
    user-select: none;
 }
 
-.save-screen-wrapper {
-
-}
 
 .save-screen-wrapper pre {
    padding: 16px;
@@ -302,8 +280,36 @@
     margin-bottom: 15px;
  }
 
- /*test table add animation*/
- #flag_list tbody :last-child {
-   animation-duration: 1s;
-   animation-name: fadeIn;
+ .continue-header {
+   text-align: center;
+   font-weight: 100;
+   font-size: 23px;
  }
+
+/*saved preview*/
+.syntax-new-line {
+   margin-left: 10px;
+}
+
+.syntax-key {
+   color: #19a2e4;
+}
+
+.syntax-string {
+   color: #e87805;
+}
+
+.syntax-number {
+   color: #c12cc1;
+}
+
+.history-expand {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   width: 100%;
+}
+
+.history-expand span {
+   margin-left: 20px;
+}

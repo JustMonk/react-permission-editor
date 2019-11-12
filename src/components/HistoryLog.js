@@ -15,19 +15,19 @@ class HistoryLog extends React.Component {
       var historyRef = firebase.database().ref('history');
       historyRef.on('value', (snapshot) => {
          if (!snapshot.val()) return;
-         this.setState({ history: Object.values(snapshot.val()) });
+         this.setState({ history: Object.values(snapshot.val()).reverse() });
       });
-      var instances = M.Collapsible.init(document.querySelectorAll('.collapsible'), {});
+      M.Collapsible.init(document.querySelectorAll('.collapsible'), {});
    }
 
    componentDidUpdate() {
-      var instances = M.Collapsible.init(document.querySelectorAll('.collapsible'), {});
+      M.Collapsible.init(document.querySelectorAll('.collapsible'), {});
    }
 
    render() {
       return (
 
-         <div class="row outside-wrapper fadeIn">
+         <div className="row outside-wrapper fadeIn">
 
             {this.state.history.length < 1 ?
                <div id="empty-history" className="action-message">
@@ -37,24 +37,34 @@ class HistoryLog extends React.Component {
 
                :
 
-               <div className="IN_THE_FIND">
+               <div className="expand-wrapper">
 
-                  <ul class="collapsible">
+                  <ul className="collapsible">
 
-                     {this.state.history.map((val,i) => {
+                     {this.state.history.map((val, i) => {
                         return (
                            <li key={`${val.timestamp}`}>
-                              <div class="collapsible-header"><i class="material-icons">filter_drama</i>{i}) ID:{val.id} TIMESTAMP:{val.timestamp}</div>
-                              <div class="collapsible-body">
-                              <p>{val.id}</p>
-                              <p>{val.name}</p>
-                              <p>{val.email}</p>
-                              <p>{val.config_bool}</p>
-                              <p>{val.timer_integer}</p>
-                              <p>{val.flags}</p>
-                              <p>{val.activate_date}</p>
-                              <p>{val.update_date}</p>
-                              <p>{val.timestamp}</p>
+
+                              <div className="collapsible-header">
+                                 <i className="material-icons">history</i>
+                                 <div className="history-expand">
+                                 <span>Дата: {new Date(val.timestamp).toISOString()}</span>
+                                 <span>ID: {val.id}</span>
+                                 <span>Name: {val.name}</span>
+                                 <span>Editor: admin</span>
+                                 </div>
+                              </div>
+
+                              <div className="collapsible-body">
+                                 <p>id: {val.id}</p>
+                                 <p>name: {val.name}</p>
+                                 <p>email: {val.email}</p>
+                                 <p>config_bool: {val.config_bool}</p>
+                                 <p>timer_integer: {val.timer_integer}</p>
+                                 <p>flags: {val.flags}</p>
+                                 <p>activate_date: {val.activate_date}</p>
+                                 <p>update_date: {val.update_date}</p>
+                                 <p>timestamp: {val.timestamp}</p>
                               </div>
                            </li>
                         );
@@ -62,9 +72,7 @@ class HistoryLog extends React.Component {
 
                   </ul>
                </div>
-
             }
-
 
          </div>
       );

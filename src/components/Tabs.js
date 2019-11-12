@@ -4,9 +4,6 @@ import EditorForm from './EditorForm';
 import HistoryLog from './HistoryLog';
 import firebase from './firebase-config';
 
-//TEMP FOR TEST!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-import SaveScreen from './SaveScreen';
-
 class Tabs extends React.Component {
    constructor(props) {
       super(props);
@@ -20,26 +17,27 @@ class Tabs extends React.Component {
 
       var historyRef = firebase.database().ref('history');
       historyRef.on('value', (snapshot) => {
+         if (!snapshot.val()) return;
          this.setState({ historyRecords: Object.values(snapshot.val()).length ? Object.values(snapshot.val()).length : 0 });
       });
    }
 
    render() {
       return (
-         <div class="row outside-wrapper">
+         <div className="row outside-wrapper">
 
-            <div class="col s8">
-               <ul class="tabs">
-                  <li class="tab col s3"><a href="#editor-wrapper">Редактор</a></li>
-                  <li class="tab col s3"><a href="#history-wrapper">История ({this.state.historyRecords})</a></li>
+            <div className="col s8">
+               <ul className="tabs">
+                  <li className="tab col s3"><a href="#editor-wrapper">Редактор</a></li>
+                  <li className="tab col s3"><a href="#history-wrapper">История ({this.state.historyRecords})</a></li>
                </ul>
             </div>
 
-            <div id="editor-wrapper" class="col s12">
+            <div id="editor-wrapper" className="col s12">
                <EditorForm />
             </div>
 
-            <div id="history-wrapper" class="col s12">
+            <div id="history-wrapper" className="col s12">
                <HistoryLog />
             </div>
 

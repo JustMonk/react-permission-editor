@@ -20,7 +20,6 @@ class Range extends React.Component {
       M.updateTextFields();
       //reinit
       M.Range.init(document.querySelectorAll("input[type=range]"));
-      
    }
 
    showCurrentValue(e) {
@@ -30,12 +29,12 @@ class Range extends React.Component {
 
    render() {
       return (
-         <p class="range-field">
-            <div class="range-helper">
+         <p className="range-field">
+            <p className="range-helper">
                <span>{this.props.min}</span>
-               <span>Выбранное значение: <span class="current-value">{this.props.default}</span></span>
+               <span>Выбранное значение: <span className="current-value">{this.props.default}</span></span>
                <span>{this.props.max}</span>
-            </div>
+            </p>
             <input type="range" id={this.props.id} defaultValue={this.props.default} min={this.props.min} max={this.props.max} onChange={this.showCurrentValue} />
          </p>
       );

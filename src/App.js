@@ -1,6 +1,5 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css';
 import './App.css';
 import Card from './components/Card.js';
 import Navbar from './components/Navbar'

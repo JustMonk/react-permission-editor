@@ -1,24 +1,26 @@
 import React from 'react';
-import M from 'materialize-css';
 
 class SwitchList extends React.Component {
 
    constructor(props) {
       super(props);
       this.state = {
-         list: this.props.flags
+         list: this.props.flags,
+         isIncrease: false,
       };
       this.addRow = this.addRow.bind(this);
       this.deleteLastRow = this.deleteLastRow.bind(this);
    }
 
    addRow() {
+      this.setState({isIncrease: true});
       let currentList = this.state.list;
       currentList.push('0');
       this.setState({list: currentList});
    }
 
    deleteLastRow() {
+      this.setState({isIncrease: false});
       let currentList = this.state.list;
       currentList.pop();
       this.setState({list: currentList});
@@ -28,19 +30,18 @@ class SwitchList extends React.Component {
       return this.state.list.map((val, i) => {
          let checkbox = +val ? <input defaultChecked type="checkbox"></input> : <input type="checkbox"></input>;
          return (
-            <tr>
+            <tr key={i} className={this.state.isIncrease && this.state.list.length-1 === i ? 'fadeIn' : ''}>
                <td>Доступ к модулю {i + 1}</td>
-               <td><div class="switch">
+               <td><div className="switch">
                   <label>
                      {checkbox}
-                     <span class="lever"></span>
+                     <span className="lever"></span>
                   </label>
                </div></td>
             </tr>
          );
       })
    }
-
 
    render() {
       return (
@@ -49,13 +50,14 @@ class SwitchList extends React.Component {
                <thead>
                   <tr>
                      <th>Привилегия:</th>
-                     <th>Разрешено?</th>
+                     
+                     {this.state.list.length < 1 ? "" : <th>Разрешено?</th>}
                   </tr>
                </thead>
 
                <tbody>
 
-                  {this.state.list.length < 1 ? 'Не передан ни один флаг' : this.getRows()}
+                  {this.state.list.length < 1 ? <tr><td>Пользователь не обладает доступом к системе</td></tr> : this.getRows()}
 
                </tbody>
             </table>
